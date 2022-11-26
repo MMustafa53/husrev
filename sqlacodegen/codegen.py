@@ -1,5 +1,7 @@
 """Contains the code generation logic and helper functions."""
 from __future__ import unicode_literals, division, print_function, absolute_import
+
+import os
 from collections import defaultdict
 from inspect import FullArgSpec
 from keyword import iskeyword
@@ -473,7 +475,7 @@ class ManyToManyRelationship(Relationship):
 
 class CodeGenerator(object):
     header = '# coding: utf-8'
-    footer = ''
+    footer = '\n'
 
     def __init__(self, metadata, noindexes=False, noconstraints=False, nojoined=False, noinflect=False,
                  noclasses=False):
@@ -562,19 +564,31 @@ class CodeGenerator(object):
             self.collector.add_literal_import('sqlalchemy.ext.declarative', 'declarative_base')
 
     def render(self, outfile=sys.stdout):
-        print(self.header, file=outfile)
-
-        # Render the collected imports
-        print(self.collector.render() + '\n\n', file=outfile)
-
-        if any(isinstance(model, ModelClass) for model in self.models):
-            print('Base = declarative_base()\nmetadata = Base.metadata', file=outfile)
-        else:
-            print('metadata = MetaData()', file=outfile)
-
         # Render the model tables and classes
         for model in self.models:
-            print('\n\n' + model.render().rstrip('\n'), file=outfile)
+            import os
+            if not os.path.exists('models'):
+                os.mkdir('models')
+            self.base()
+            with open('models/' + model.name + '.py', 'w+') as file:
+                file.write(self.header + '\n')
+                file.write(self.collector.render() + '\nfrom base import Base\n')
+                file.write('\n\n' + model.render().rstrip('\n'))
+                if self.footer:
+                    file.write(self.footer)
+                file.close()
 
         if self.footer:
             print(self.footer, file=outfile)
+
+    def base(self):
+        with open('models/base.py', 'w+') as file:
+            file.write(self.header + '\n')
+            file.write(self.collector.render() + '\n\n')
+            if any(isinstance(model, ModelClass) for model in self.models):
+                file.write('Base = declarative_base()\nmetadata = Base.metadata')
+            else:
+                file.write('metadata = MetaData()')
+            if self.footer:
+                file.write(self.footer)
+            file.close()
