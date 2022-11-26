@@ -1,22 +1,22 @@
-This is a tool that reads the structure of an existing database and generates
-the appropriate SQLAlchemy model code, using the declarative style if
-possible.
-
-This tool was written as a replacement for
-`sqlautocode <http://code.google.com/p/sqlautocode/>`_, which was suffering
-from several issues (including, but not limited to, incompatibility with
+This tool has been forked from at `Github
+<https://github.com/agronholm/sqlacodegen>`_.
 Python 3 and the latest SQLAlchemy version).
+
+This is a tool that reads the structure of an existing database and generates
+the appropriate SQLAlchemy model classes, using the declarative style if
+possible.
 
 
 Features
 ========
 
-* Supports SQLAlchemy 0.6.x - 0.9.x
+* Supports SQLAlchemy
 * Produces declarative code that almost looks like it was hand written
 * Produces `PEP 8 <http://www.python.org/dev/peps/pep-0008/>`_ compliant code
 * Accurately determines relationships, including many-to-many, one-to-one
 * Automatically detects joined table inheritance
 * Excellent test coverage
+* It creates each SQLAlchemy class file separately under the ``"models"`` folder.
 
 
 Usage instructions
@@ -27,17 +27,17 @@ Installation
 
 To install, do::
 
-    pip install sqlacodegen
+    pip install sqlacodegen_husrev
 
 or, failing that::
 
-    easy_install sqlacodegen
+    easy_install sqlacodegen_husrev
 
 
 Example usage
 -------------
 
-At the minimum, you have to give sqlacodegen a database URL.
+At the minimum, you have to give sqlacodegen_husrev a database URL.
 The URL is passed directly to SQLAlchemy's
 `create_engine() <http://docs.sqlalchemy.org/en/latest/core/engines.html?highlight=create_engine#sqlalchemy.create_engine>`_
 method so please refer to
@@ -46,13 +46,13 @@ for instructions on how to construct a proper URL.
 
 Examples::
 
-    sqlacodegen postgresql:///some_local_db
-    sqlacodegen mysql+oursql://user:password@localhost/dbname
-    sqlacodegen sqlite:///database.db
+    sqlacodegen_husrev postgresql:///some_local_db
+    sqlacodegen_husrev mysql+oursql://user:password@localhost/dbname
+    sqlacodegen_husrev sqlite:///database.db
 
 To see the full list of options::
 
-    sqlacodegen --help
+    sqlacodegen_husrev --help
 
 
 Model class naming logic
@@ -101,13 +101,12 @@ Source code
 ===========
 
 The source can be browsed at `Github
-<https://github.com/agronholm/sqlacodegen>`_.
-
+<https://github.com/MMustafa53/sqlacodegen-husrev>`_.
 
 Reporting bugs
 ==============
 
-A `bug tracker <https://github.com/agronholm/sqlacodegen/issues>`_
+A `bug tracker <https://github.com/MMustafa53/sqlacodegen-husrev/issues>`_
 is provided by Github.
 
 

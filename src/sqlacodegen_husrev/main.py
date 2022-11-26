@@ -1,14 +1,13 @@
 """ """
 from __future__ import unicode_literals, division, print_function, absolute_import
 import argparse
-import codecs
 import sys
 
 from sqlalchemy.engine import create_engine
 from sqlalchemy.schema import MetaData
 
-from sqlacodegen.codegen import CodeGenerator
-import sqlacodegen
+from src.sqlacodegen_husrev.codegen import CodeGenerator
+from src import sqlacodegen_husrev
 
 
 def main():
@@ -23,11 +22,10 @@ def main():
     parser.add_argument('--nojoined', action='store_true', help="don't autodetect joined table inheritance")
     parser.add_argument('--noinflect', action='store_true', help="don't try to convert tables names to singular form")
     parser.add_argument('--noclasses', action='store_true', help="don't generate classes, only tables")
-    parser.add_argument('--outfile', help='file to write output to (default: stdout)')
     args = parser.parse_args()
 
     if args.version:
-        print(sqlacodegen.version)
+        print(sqlacodegen_husrev.version)
         return
     if not args.url:
         print('You must supply a url\n', file=sys.stderr)
@@ -38,7 +36,9 @@ def main():
     metadata = MetaData(engine)
     tables = args.tables.split(',') if args.tables else None
     metadata.reflect(engine, args.schema, not args.noviews, tables)
-    outfile = codecs.open(args.outfile, 'w', encoding='utf-8') if args.outfile else sys.stdout
     generator = CodeGenerator(metadata, args.noindexes, args.noconstraints, args.nojoined, args.noinflect,
                               args.noclasses)
-    generator.render(outfile)
+    generator.render()
+
+if __name__ == '__main__':
+    main()

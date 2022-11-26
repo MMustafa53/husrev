@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "sqlacodegen_husrev_mpvri"
+version = "1.0.0"
+authors = [
+  { name="Mustafa Hüsrevoğlu", email="mhusrevoglu@gmail.com" },
+]
+description = "Creates each SQLAlchemy class file separately"
+readme = "README.rst"
+requires-python = ">=3.3"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/MMustafa53/sqlacodegen-husrev"
+"Bug Tracker" = "https://github.com/MMustafa53/sqlacodegen-husrev/issues"

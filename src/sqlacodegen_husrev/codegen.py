@@ -563,7 +563,7 @@ class CodeGenerator(object):
         else:
             self.collector.add_literal_import('sqlalchemy.ext.declarative', 'declarative_base')
 
-    def render(self, outfile=sys.stdout):
+    def render(self):
         # Render the model tables and classes
         for model in self.models:
             import os
@@ -577,9 +577,6 @@ class CodeGenerator(object):
                 if self.footer:
                     file.write(self.footer)
                 file.close()
-
-        if self.footer:
-            print(self.footer, file=outfile)
 
     def base(self):
         with open('models/base.py', 'w+') as file:
