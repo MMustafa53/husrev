@@ -2,8 +2,8 @@
 requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 [project]
-name = "husrev_mpvri"
-version = "1.0.0"
+name = "husrev"
+version = "1.5.3"
 authors = [
   { name="Mustafa Hüsrevoğlu", email="mhusrevoglu@gmail.com" },
 ]
