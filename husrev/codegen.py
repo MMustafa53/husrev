@@ -570,7 +570,7 @@ class CodeGenerator(object):
             if not os.path.exists('models'):
                 os.mkdir('models')
             self.base()
-            with open('models/' + model.name + '.py', 'w+') as file:
+            with open(f'models/{model.table.fullname}.py', 'w+') as file:
                 file.write(self.header + '\n')
                 file.write(self.collector.render() + '\nfrom base import Base\n')
                 file.write('\n\n' + model.render().rstrip('\n'))

@@ -6,8 +6,8 @@ import sys
 from sqlalchemy.engine import create_engine
 from sqlalchemy.schema import MetaData
 
-from src.husrev.codegen import CodeGenerator
-from src import husrev
+from husrev.codegen import CodeGenerator
+import husrev
 
 
 def main():
@@ -39,6 +39,7 @@ def main():
     generator = CodeGenerator(metadata, args.noindexes, args.noconstraints, args.nojoined, args.noinflect,
                               args.noclasses)
     generator.render()
+
 
 if __name__ == '__main__':
     main()
