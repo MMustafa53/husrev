@@ -1,7 +1,7 @@
 Version history
 ===============
 
-6.53.61
+1.5.3
 -----
 * Separately file added
 * Bugs fixed

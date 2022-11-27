@@ -48,11 +48,13 @@ for instructions on how to construct a proper URL.
 Examples:
   
  >husrev postgresql:///some_local_db --noinflect
+
  >husrev mysql+oursql://user:password@localhost/dbname
+
  >husrev sqlite:///database.db  
 
 To see the full list of options:
->  husrev --help
+ >husrev --help
 
   
 Model class naming logic  

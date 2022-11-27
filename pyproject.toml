@@ -1,8 +1,8 @@
 [project]
 name = "husrev"
-version = "6.53.61"
+version = "1.5.3"
 authors = [
-    { name = "Mustafa Hüsrevoğlu", email = "mhusrevoglu@gmail.com" },
+    { name = "Mustafa Hüsrevoğlu", email = "mmhusrevoglu@gmail.com" },
 ]
 dependencies = [
     "inflect",
