@@ -27,17 +27,17 @@ Installation
 
 To install, do::
 
-    pip install sqlacodegen_husrev
+    pip install husrev
 
 or, failing that::
 
-    easy_install sqlacodegen_husrev
+    easy_install husrev
 
 
 Example usage
 -------------
 
-At the minimum, you have to give sqlacodegen_husrev a database URL.
+At the minimum, you have to give husrev a database URL.
 The URL is passed directly to SQLAlchemy's
 `create_engine() <http://docs.sqlalchemy.org/en/latest/core/engines.html?highlight=create_engine#sqlalchemy.create_engine>`_
 method so please refer to
@@ -46,13 +46,13 @@ for instructions on how to construct a proper URL.
 
 Examples::
 
-    sqlacodegen_husrev postgresql:///some_local_db
-    sqlacodegen_husrev mysql+oursql://user:password@localhost/dbname
-    sqlacodegen_husrev sqlite:///database.db
+    husrev postgresql:///some_local_db
+    husrev mysql+oursql://user:password@localhost/dbname
+    husrev sqlite:///database.db
 
 To see the full list of options::
 
-    sqlacodegen_husrev --help
+    husrev --help
 
 
 Model class naming logic
@@ -101,21 +101,10 @@ Source code
 ===========
 
 The source can be browsed at `Github
-<https://github.com/MMustafa53/sqlacodegen-husrev>`_.
+<https://github.com/MMustafa53/husrev>`_.
 
 Reporting bugs
 ==============
 
-A `bug tracker <https://github.com/MMustafa53/sqlacodegen-husrev/issues>`_
+A `bug tracker <https://github.com/MMustafa53/husrev/issues>`_
 is provided by Github.
-
-
-Getting help
-============
-
-If you have problems or other questions, you can either:
-
-* Ask on the `SQLAlchemy Google group
-  <http://groups.google.com/group/sqlalchemy>`_, or
-* Ask on the ``#sqlalchemy`` channel on
-  `Freenode IRC <http://freenode.net/irc_servers.shtml>`_

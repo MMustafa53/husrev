@@ -6,8 +6,8 @@ import sys
 from sqlalchemy.engine import create_engine
 from sqlalchemy.schema import MetaData
 
-from src.sqlacodegen_husrev.codegen import CodeGenerator
-from src import sqlacodegen_husrev
+from src.husrev.codegen import CodeGenerator
+from src import husrev
 
 
 def main():
@@ -25,7 +25,7 @@ def main():
     args = parser.parse_args()
 
     if args.version:
-        print(sqlacodegen_husrev.version)
+        print(husrev.version)
         return
     if not args.url:
         print('You must supply a url\n', file=sys.stderr)

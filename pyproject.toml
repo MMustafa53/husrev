@@ -2,7 +2,7 @@
 requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 [project]
-name = "sqlacodegen_husrev_mpvri"
+name = "husrev_mpvri"
 version = "1.0.0"
 authors = [
   { name="Mustafa Hüsrevoğlu", email="mhusrevoglu@gmail.com" },
@@ -17,5 +17,5 @@ classifiers = [
 ]
 
 [project.urls]
-"Homepage" = "https://github.com/MMustafa53/sqlacodegen-husrev"
-"Bug Tracker" = "https://github.com/MMustafa53/sqlacodegen-husrev/issues"
+"Homepage" = "https://github.com/MMustafa53/husrev"
+"Bug Tracker" = "https://github.com/MMustafa53/husrev/issues"

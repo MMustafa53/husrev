@@ -4,7 +4,7 @@ import os.path
 from setuptools import setup, find_packages
 from setuptools.command.test import test as TestCommand
 
-from src import sqlacodegen_husrev
+from src import husrev
 
 
 class PyTest(TestCommand):
@@ -28,12 +28,12 @@ readme_path = os.path.join(here, 'README.rst')
 readme = open(readme_path).read()
 
 setup(
-    name='sqlacodegen_husrev',
+    name='husrev',
     description='Automatic model code generator for SQLAlchemy',
     long_description=readme,
-    version=sqlacodegen_husrev.__version__,
+    version=husrev.__version__,
     author='Alex Gronholm',
-    author_email='sqlacodegen_husrev@nextday.fi',
+    author_email='husrev@nextday.fi',
     url='http://pypi.python.org/pypi/sqlacodegen/',
     classifiers=[
         'Development Status :: 5 - Production/Stable',
@@ -65,7 +65,7 @@ setup(
     zip_safe=False,
     entry_points={
         'console_scripts': [
-            'sqlacodegen_husrev=sqlacodegen_husrev.main:main'
+            'husrev=husrev.main:main'
         ]
     }
 )
